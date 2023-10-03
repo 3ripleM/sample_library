@@ -7,6 +7,7 @@ import { Modal, ModalProps } from "./components/modal";
 import { Button } from "@components/button";
 import { TextInput } from "@components/inputs/text-input";
 import { useForm } from "react-hook-form";
+import { Form } from "@components/form";
 
 const Book = ({
   name,
@@ -137,34 +138,26 @@ const formValidation: Record<
   ],
 };
 
-const AddModal = ({ openState }: { openState: ModalProps["modalState"] }) => {
-  const { formState, register, handleSubmit } = useForm<{
-    name: string;
-    price: number;
-    category: string;
-  }>({});
+type FormInput = {
+  name: string;
+  price: number;
+  category: string;
+};
 
+const AddModal = ({ openState }: { openState: ModalProps["modalState"] }) => {
   return (
     <Modal modalState={openState} title="Kooft">
-      <form onSubmit={handleSubmit((v) => console.log(v))}>
-        <TextInput
-          label="Name"
-          placeholder="Name of the book"
-          {...register("name")}
-        />
+      <Form<FormInput> onSubmit={(v) => console.log(v)}>
+        <TextInput label="Name" placeholder="Name of the book" name="name" />
         <TextInput
           label="Category"
           placeholder="Book Category"
-          {...register("category")}
+          name="category"
         />
 
-        <TextInput
-          label="Price"
-          placeholder="Enter the price"
-          {...register("price")}
-        />
+        <TextInput label="Price" placeholder="Enter the price" name="price" />
         <Button onClick={constVoid}>Submit</Button>
-      </form>
+      </Form>
     </Modal>
   );
 };

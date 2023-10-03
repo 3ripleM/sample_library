@@ -4,12 +4,17 @@ export const TextInput = ({
   error,
   label,
   placeholder,
-  ...register
+  register,
+  name,
+  onChange,
 }: {
   error?: string;
   label: string;
   placeholder?: string;
-} & UseFormRegisterReturn) => {
+  name: string;
+  register?: UseFormRegisterReturn;
+  onChange?: (value: string) => void;
+}) => {
   return (
     <div className="form-control w-full max-w-xs">
       <label className="label">
@@ -20,6 +25,8 @@ export const TextInput = ({
         placeholder={placeholder}
         className="input input-bordered w-full max-w-xs"
         {...register}
+        name={name}
+        onChange={({ target: { value } }) => onChange?.(value)}
       />
       {error && (
         <label className="label">
