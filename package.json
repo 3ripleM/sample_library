@@ -1,5 +1,6 @@
 {
   "name": "client",
+  "main": "dist/js/server.js",
   "private": true,
   "version": "0.0.0",
   "scripts": {
