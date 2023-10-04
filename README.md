@@ -1,3 +1,5 @@
+[![Deployment](https://github.com/3ripleM/blazesoft_interview/actions/workflows/main.yml/badge.svg)](https://github.com/3ripleM/blazesoft_interview/actions/workflows/main.yml)
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
