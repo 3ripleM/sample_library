@@ -13,7 +13,7 @@ export const Button = ({
 }) => (
   <button
     className={classnames(
-      "btn rounded-md px-2 transition-colors",
+      "btn rounded-md px-2 transition-colors hover:bg-neutral-900",
       {
         "btn-md": size === "md",
         "btn-lg": size === "lg",

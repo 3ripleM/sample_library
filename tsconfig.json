@@ -19,13 +19,15 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
+    "baseUrl": "src",
     "paths": {
-      "@prelude": ["./src/prelude"],
-      "@core/*": ["./src/core/*"],
-      "@components/*": ["./src/components/*"],
-
+      "@prelude": ["./prelude"],
+      "@core/*": ["./core/*"],
+      "@components/*": ["./components/*"],
+      "@utils/*": ["./utils/*"],
+      "@store/*": ["./store/*"],
+      "@hooks/*": ["./hooks/*"],
     }
-
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]
