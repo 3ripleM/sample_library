@@ -23,7 +23,7 @@ Bestselling author Sarah J. Maas's masterful storytelling brings this second boo
     description:
       `Before. Miles “Pudge” Halter is done with his safe life at home. His whole life has been one big non-event, and his obsession with famous last words has only made him crave “the Great Perhaps” even more (Francois Rabelais, poet). He heads off to the sometimes crazy and anything-but-boring world of Culver Creek Boarding School, and his life becomes the opposite of safe. Because down the hall is Alaska Young. The gorgeous, clever, funny, sexy, self-destructive, screwed up, and utterly fascinating Alaska Young. She is an event unto herself. She pulls Pudge into her world, launches him into the Great Perhaps, and steals his heart. Then. . . .
 After. Nothing is ever the same` as any,
-    price: 12,
+    price: 1200,
   },
   3: {
     id: 3,
@@ -31,7 +31,7 @@ After. Nothing is ever the same` as any,
     name: "Looking for Alaska" as any,
     description:
       `Before. Miles “Pudge” Halter is done with his safe life at home. His whole life has been one big non-event, and his obsession with famous last words has only made him crave “the Great Perhaps” even more (Francois Rabelais, poet).` as any,
-    price: 12,
+    price: 12444,
   },
 };
 
