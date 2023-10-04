@@ -8,7 +8,7 @@
     "build:server": "webpack --config ./webpack.prod.config.ts --env platform=server",
     "build:client": "webpack --config ./webpack.prod.config.ts --env platform=web",
     "build": "yarn build:server && yarn build:client",
-    "run:server": "node ./dist/js/server.js",
+    "start": "node ./dist/js/server.js",
     "serve": "webpack serve --config ./webpack.dev.config.ts"
   },
   "dependencies": {
