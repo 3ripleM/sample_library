@@ -1,16 +1,25 @@
 {
   "version": 2,
+  "buildCommand": "yarn build",
   "builds": [
     {
       "src": "dist/js/server.js",
       "use": "@vercel/node",
-      "config": { "includeFiles": ["dist/**"] }
+      "config": { "includeFiles": ["*"] }
+    },
+    {
+      "src": "dist/js/client.js",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "dist/*.svg",
+      "use": "@vercel/static"
     }
   ],
   "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "dist/js/server.js"
-    }
-  ]
+    { "src": "/", "dest": "dist/js/server.js" },
+    { "src": "/js/client.js", "dest": "dist/js/client.js" },
+    { "src": "/(.+\\.svg)", "dest": "/dist/$1" }
+  ],
+  "outputDirectory": "dist"
 }
