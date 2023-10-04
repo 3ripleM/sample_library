@@ -3,6 +3,7 @@ import React from "react";
 import { T, Tagged, IO } from "@prelude";
 import { useAppDispatch, useAppSelector } from "../store/hooks";
 import { AppDispatch, RootState } from "../store/store";
+import { identity } from "fp-ts/lib/function";
 
 export type Dispatch<Message extends Tagged<any>> = (
   message: Message,
@@ -53,7 +54,8 @@ export const Elm = <Model, Message extends Tagged<any>>({
   const [model, setState] = React.useState(initialModel);
 
   const reduxDispatch = useAppDispatch();
-  const reduxStore = useAppSelector((state) => state);
+
+  const reduxStore = useAppSelector(identity);
 
   const dispatch = React.useCallback(
     (message: Message) => {

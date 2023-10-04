@@ -13,7 +13,11 @@ export const Modal = ({ modalState, children, title }: ModalProps) => {
   const [isOpen, setIsOpen] = modalState;
 
   return (
-    <RModal isOpen={isOpen} onRequestClose={() => setIsOpen(true)}>
+    <RModal
+      isOpen={isOpen}
+      onRequestClose={() => setIsOpen(true)}
+      ariaHideApp={false}
+    >
       <div className="flex flex-col text-white">
         <div className="flex justify-between border-b-[1px] border-white p-4">
           <h1 className="text-xl font-bold">{title}</h1>

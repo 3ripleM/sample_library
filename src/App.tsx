@@ -1,13 +1,18 @@
-import "./styles/App.css";
+import React from "react";
 import { Library } from "./pages/library";
 import { Provider } from "react-redux";
 import { store } from "./store/store";
+import "./styles/App.css";
 
 function App() {
   return (
-    <Provider store={store}>
-      <Library />
-    </Provider>
+    <React.Suspense fallback={<span>loading...</span>}>
+      <React.StrictMode>
+        <Provider store={store}>
+          <Library />
+        </Provider>
+      </React.StrictMode>
+    </React.Suspense>
   );
 }
 

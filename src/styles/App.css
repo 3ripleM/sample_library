@@ -1,4 +1,8 @@
-#root {
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#app {
   padding: 2rem;
   width: 100%;
 }

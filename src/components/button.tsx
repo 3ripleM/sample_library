@@ -6,7 +6,7 @@ export const Button = ({
   size = "md",
   classname,
 }: {
-  onClick: () => void;
+  onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
   children: React.ReactNode;
   size?: "md" | "sm" | "lg";
   classname?: string;

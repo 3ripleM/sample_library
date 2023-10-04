@@ -1,4 +1,4 @@
-import { A, O, R, Tagged, Untagged, constVoid, pipe } from "@prelude";
+import { A, NEA, O, R, Tagged, Untagged, constVoid, pipe } from "@prelude";
 import { Book } from "./components/book";
 import { Button } from "@components/button";
 import { Modal, ModalProps } from "@components/modal/modal";
@@ -11,6 +11,7 @@ import { BookCreate, BookEntity, BookId, Book as BookT } from "@core/entities";
 import { Elm, ElmView, Update } from "@hooks/useElm";
 import { match } from "ts-pattern";
 import { toast } from "react-toastify";
+import { Lazy } from "fp-ts/lib/function";
 
 const AddEditModal = ({
   openState,
@@ -175,6 +176,13 @@ const update: Update<Model, Message> = (
     .exhaustive();
 };
 
+const EmptyLibrary = ({ onClick }: { onClick: Lazy<void> }) => (
+  <div className="w-full bg-neutral-500 flex  items-center p-10 flex-col gap-10 rounded-lg">
+    <h2 className="font-bold text-lg">Empty Library</h2>
+    <Button onClick={onClick}>Click to Add a Book</Button>
+  </div>
+);
+
 const view: ElmView<Model, Message> = (model, dispatch, { reduxStore }) => (
   <div className="mx-auto sm:min-w-[100px] md:min-w-[400px] max-w-[700px] flex flex-col justify-center gap-5">
     <div className="flex justify-between items-center">
@@ -205,7 +213,15 @@ const view: ElmView<Model, Message> = (model, dispatch, { reduxStore }) => (
         />
       )),
       R.toArray,
-      A.map(([, element]) => element),
+      NEA.fromArray,
+      O.foldW(
+        () => (
+          <EmptyLibrary
+            onClick={() => dispatch(Message.UserClickedAddButton)}
+          />
+        ),
+        A.map(([, element]) => element),
+      ),
     )}
 
     <AddEditModal

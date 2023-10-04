@@ -41,7 +41,7 @@ export const Book = ({
     window.addEventListener("resize", fn);
 
     return window.removeEventListener("resize", () => fn);
-  }, []);
+  }, [description]);
 
   const showMoreLessButton = React.useMemo(
     () => (showMoreButton && !showMore) || (!showMoreButton && showMore),
@@ -49,8 +49,8 @@ export const Book = ({
   );
 
   return (
-    <button
-      className="flex flex-col gap-2 w-full rounded-md px-4 pb-3 bg-neutral-700 text-left overflow-hidden hover:bg-zinc-700"
+    <div
+      className="flex flex-col gap-2 w-full rounded-md px-4 pb-3 bg-neutral-700 text-left overflow-hidden hover:bg-zinc-700 cursor-pointer"
       onClick={onClick}
     >
       <div className="flex justify-between items-center pt-3 pb-2 border-b-2 border-neutral-600 w-full">
@@ -65,7 +65,10 @@ export const Book = ({
         <Button
           classname="btn-ghost text-sm self-start underline underline-offset-2 hover:no-underline hover:!bg-red-700 hover:border-red-700"
           size="sm"
-          onClick={onDelete}
+          onClick={(event) => {
+            event.stopPropagation();
+            onDelete();
+          }}
         >
           Delete
         </Button>
@@ -84,7 +87,7 @@ export const Book = ({
 
       {showMoreLessButton && (
         <button
-          className="hover:text-blue-400 transition-colors cursor-pointer text-blue-500"
+          className="hover:text-blue-400 transition-colors cursor-pointer text-blue-500 text-left"
           onClick={(e) => {
             e.stopPropagation();
             setShowMore(!showMore);
@@ -94,6 +97,6 @@ export const Book = ({
           {showMore ? "See less" : "See More"}
         </button>
       )}
-    </button>
+    </div>
   );
 };
