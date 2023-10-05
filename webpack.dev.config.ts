@@ -3,40 +3,41 @@ import path from "path";
 import HtmlWebPackPlugin from "html-webpack-plugin";
 import "webpack-dev-server";
 import baseconfig from "./webpack.config";
+import { Configuration } from "webpack";
 
-const config = () => {
-  const base = baseconfig();
-  base.output = {};
+const base = baseconfig();
 
-  base.mode = "development";
-  base.devtool = "inline-source-map";
+const config = (): Configuration => ({
+  ...base,
+  mode: "development",
+  devtool: "inline-source-map",
 
-  base.entry = {
+  entry: {
     client: "./src/main.tsx",
-  };
+  },
 
-  base.output = {
+  output: {
     ...base.output,
     filename: "js/client.js",
-  };
+  },
 
-  base.devServer = {
+  devServer: {
     liveReload: true,
     hot: true,
     client: {
       progress: true,
     },
-  };
+  },
 
-  base.target = "web";
-  base.plugins = [
+  target: "web",
+
+  plugins: [
+    ...(base.plugins || []),
     new HtmlWebPackPlugin({
       template: path.resolve(__dirname, "./index.html"),
       filename: "./index.html",
     }),
-  ];
-
-  return base;
-};
+  ],
+});
 
 export default config;

@@ -1,4 +1,4 @@
-[![Deployment](https://github.com/3ripleM/blazesoft_interview/actions/workflows/main.yml/badge.svg)](https://github.com/3ripleM/blazesoft_interview/actions/workflows/main.yml)
+[![Deployment](https://github.com/3ripleM/blazesoft_interview/actions/workflows/main.yml/badge.svg?branch=master)](https://github.com/3ripleM/blazesoft_interview/actions/workflows/main.yml)
 
 # React + TypeScript + Vite
 

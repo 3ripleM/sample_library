@@ -4,6 +4,7 @@ import React from "react";
 import express from "express";
 import { renderToString } from "react-dom/server";
 import App from "../App";
+import "../styles/index.css";
 import fs from "fs";
 import path from "path";
 

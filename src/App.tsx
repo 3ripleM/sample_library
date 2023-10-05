@@ -2,7 +2,6 @@ import React from "react";
 import { Library } from "./pages/library";
 import { Provider } from "react-redux";
 import { store } from "./store/store";
-import "./styles/App.css";
 
 function App() {
   return (

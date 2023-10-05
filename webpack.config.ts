@@ -1,6 +1,7 @@
 import path from "path";
 import TsconfigPathsPlugin from "tsconfig-paths-webpack-plugin";
 import webpack from "webpack";
+import MiniCssExtractPlugin from "mini-css-extract-plugin";
 
 const config = () => {
   // Default to the server configuration
@@ -39,20 +40,17 @@ const config = () => {
         },
         {
           test: /\.css$/i,
+          include: path.resolve(__dirname, "src"),
           use: [
-            "style-loader",
+            // "style-loader",
+            MiniCssExtractPlugin.loader,
             "css-loader",
             {
               loader: "postcss-loader",
               options: {
                 postcssOptions: {
                   plugins: [
-                    [
-                      "postcss-preset-env",
-                      {
-                        // Options
-                      },
-                    ],
+                    ["postcss-preset-env", "tailwindcss", "autoprefixer"],
                   ],
                 },
               },
@@ -65,6 +63,11 @@ const config = () => {
         },
       ],
     },
+    plugins: [
+      new MiniCssExtractPlugin({
+        filename: "main.css", // Specify the desired output filename
+      }),
+    ],
   };
 
   return base;

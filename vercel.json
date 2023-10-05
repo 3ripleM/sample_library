@@ -13,12 +13,17 @@
     {
       "src": "dist/*.svg",
       "use": "@vercel/static"
+    },
+    {
+      "src": "dist/*.css",
+      "use": "@vercel/static"
     }
   ],
   "routes": [
     { "src": "/", "dest": "dist/js/server.js" },
     { "src": "/js/client.js", "dest": "dist/js/client.js" },
-    { "src": "/(.+\\.svg)", "dest": "/dist/$1" }
+    { "src": "/(.+\\.svg)", "dest": "/dist/$1" },
+    { "src": "/(.+\\.css)", "dest": "/dist/$1" }
   ],
   "outputDirectory": "dist"
 }
