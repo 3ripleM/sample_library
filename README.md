@@ -49,8 +49,8 @@ The application is hosted on a public domain: [blazesoft.medy.dev](https://blaze
 1. Clone the repository.
 
 ```bash
-git clone <repository-url>
-cd bookstore-react-app
+git clone https://github.com/3ripleM/blazesoft_interview
+cd blazesoft_interview
 ```
 
 2. install dependencies
