@@ -11,9 +11,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: install deps
+      - name: Install Deps
         run: yarn install
-      - name: build project
+      - name: Build Project
         run: yarn build
       - name: Install Vercel CLI
         run: npm install --global vercel@latest
